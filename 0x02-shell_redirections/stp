@@ -1,4 +1,4 @@
 #!/bin/bash
-echo -e "#!/bin/bash\nx" > $1
+echo -e "#!/bin/bash" > $1
 chmod u+x $1
 vim $1
