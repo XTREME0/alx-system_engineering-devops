@@ -1,0 +1,4 @@
+#!/bin/bash
+echo -e "#!/bin/bash" > $1
+chmod u+x $1
+vim $1
