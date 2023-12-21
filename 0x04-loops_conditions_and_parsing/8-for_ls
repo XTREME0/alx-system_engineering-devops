@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # This script is listing elements without 'x-'
 LIST="$(ls)"
-x=""
 for i in "$LIST"; do
 	echo "$i" | sed 's/.*-//'
 	done
