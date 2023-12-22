@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Print PID of bash without using ps
-for i in $(pidof bash)
+pids=($(pidof bash))
+for ((i=${#pids[@]}-1; i>=0; i--))
 do
-	echo "$i bash"
+    echo "${pids[i]} bash"
 done
