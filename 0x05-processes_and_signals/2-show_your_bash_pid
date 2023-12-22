@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Print ps for bash process with details
+ps u -A --forest | grep "bash"
