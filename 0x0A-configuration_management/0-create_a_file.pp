@@ -5,3 +5,8 @@ file { 'school':
   group   => 'www-data',
   content => 'I love Puppet',
 }
+
+file { '/tmp':
+  ensure => 'directory',
+  mode   => '1777',
+}
