@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-ssh -i "~/.ssh/school" -o "StrictHostKeyChecking=no" ubuntu@52.201.220.129
+ssh -i ~/.ssh/school ubuntu@52.201.220.129
