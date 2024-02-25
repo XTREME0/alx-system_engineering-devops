@@ -1,0 +1,7 @@
+
+#config file to only use ssh private key and no password
+Host 511496-web-01
+    HostName 100.25.132.249
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
