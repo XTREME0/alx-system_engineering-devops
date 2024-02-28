@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # install and configure nging on a server
-
-sudo apt-get -y update
-sudo apt-get install nginx
-sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
 sudo service nginx restart
