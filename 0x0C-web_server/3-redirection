@@ -3,6 +3,5 @@
 apt-get update
 apt-get -y install nginx
 sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
-redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://boulderbugle.com/bHVw8SFV;\n\t}\n"
-sudo sed -i "53s|.*|$redirect|" /etc/nginx/sites-enabled/default
+sudo dd status=none of=/var/www/html/index.html; sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/boulderbugle.com\/bHVw8SFV\/;\\n\\t}/" /etc/nginx/sites-available/default
 sudo /etc/init.d/nginx restart
