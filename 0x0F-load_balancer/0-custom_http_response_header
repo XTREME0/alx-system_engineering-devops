@@ -4,10 +4,11 @@ apt-get -y update
 apt-get install -y nginx
 echo "Hello World" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/404.html
+HOSTNAME=$(hostname)
 printf %s "server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    add_header X-Served-By '$(hostname)';
+    add_header X-Served-By '$HOSTNAME';
     root   /var/www/html;
     index  index.html;
     location /redirect_me {
