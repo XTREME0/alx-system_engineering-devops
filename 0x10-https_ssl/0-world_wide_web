@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# print subdomain info.
+
+get_info() {
+    local subdomain="$2"
+    local domain="$1"
+
+    line=$(dig +short "$subdomain"."$domain")
+    if [[ -n "$line" ]]; then
+        record_type=$(dig "$subdomain"."$domain" | awk '/ANSWER SECTION/ {getline; print $4}')
+        target="$line"
+
+        echo "The subdomain $subdomain is a $record_type record and points to $target"
+    fi
+}
+if [ "$#" -eq 1 ]; then
+    get_info "$1" "www"
+    get_info "$1" "lb-01"
+    get_info "$1" "web-01"
+    get_info "$1" "web-02"
+elif [ "$#" -eq 2 ]; then
+    get_info "$1" "$2"
+fi
