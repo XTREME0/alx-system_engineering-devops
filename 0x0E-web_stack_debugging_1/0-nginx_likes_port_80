@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# fix the error
+cd /etc/nginx/sites-enabled/ || exit;
+sudo rm default
+ln -s /etc/nginx/sites-available/default default;
+sudo service nginx restart
