@@ -12,12 +12,9 @@ if __name__ == '__main__':
                         f'/users/{id}/todos/')
     resp = resp.json()
     with open(f'{id}.json', 'a') as file:
-        file.write('{"'+id+'": [')
-        for i, task in enumerate(resp):
-            title = task.get("title")
-            status = task.get("completed")
-            file.write(f'{{"task": "{title}", "competed": "{status}", '
-                       f'"username": "{user}"}}')
-            if i != len(resp) - 1:
-                file.write(', ')
-        file.write(']}')
+        for task in resp:
+            json.dump({id: [{
+                "task": task.get("title"),
+                "completed": task.get("completed"),
+                "username": user
+                }]}, file)
