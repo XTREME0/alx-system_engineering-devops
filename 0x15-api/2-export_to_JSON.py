@@ -16,7 +16,8 @@ if __name__ == '__main__':
         for i, task in enumerate(resp):
             title = task.get("title")
             status = task.get("completed")
-            file.write(f'{{"task": "{title}", "competed": "{status}", "username": "{user}"}}')
+            file.write(f'{{"task": "{title}", "competed": "{status}", '
+                       f'"username": "{user}"}}')
             if i != len(resp) - 1:
                 file.write(', ')
         file.write(']}')
