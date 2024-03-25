@@ -9,7 +9,8 @@ if __name__ == '__main__':
     resp = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}/')
     resp = resp.json()
     name = resp.get("name")
-    resp = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}/todos/')
+    resp = requests.get('https://jsonplaceholder.typicode.com'
+                        f'/users/{id}/todos/')
     resp = resp.json()
     total = 0
     done = 0
