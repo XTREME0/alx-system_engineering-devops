@@ -12,9 +12,8 @@ if __name__ == '__main__':
                         f'/users/{id}/todos/')
     resp = resp.json()
     with open(f'{id}.json', 'a') as file:
-        for task in resp:
-            json.dump({id: [{
-                "task": task.get("title"),
-                "completed": task.get("completed"),
-                "username": user
-                }]}, file)
+        json.dump({id: [{
+            "task": task.get("title"),
+            "completed": task.get("completed"),
+            "username": user
+            } for task in resp]}, file)
