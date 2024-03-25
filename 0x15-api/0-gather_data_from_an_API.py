@@ -19,4 +19,4 @@ for task in resp:
         done += 1
 print(f'Employee {name} is done with tasks({done}/{total}):')
 for task in tasks:
-    print(task)
+    print(f'\t {task}')
