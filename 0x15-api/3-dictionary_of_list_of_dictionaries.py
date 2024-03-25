@@ -3,18 +3,14 @@
 if __name__ == '__main__':
     import json
     import requests
-    import sys
-    id = sys.argv[1]
-    resp = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}/')
+    resp = requests.get(f'https://jsonplaceholder.typicode.com/users/')
     resp = resp.json()
-    user = resp.get("username")
-    resp = requests.get('https://jsonplaceholder.typicode.com'
-                        f'/users/{id}/todos/')
-    resp = resp.json()
-    with open(f'{id}.json', 'a') as file:
-        for task in resp:
-            json.dump({id: [{
-                "task": task.get("title"),
-                "completed": task.get("completed"),
-                "username": user
-                }, file)
+    with open(f'todo_all_employees.json', 'a') as file:
+        json.dump({
+            user.get("id"): [{
+            "username": user.get("username"),
+            "task": task.get("title"),
+            "completed": task.get("completed")
+            } for task in requests.get('https://jsonplaceholder.typicode.com/'
+                'todos/', params={"userId": user.get("id")}).json()]
+            for user in resp}, file)
