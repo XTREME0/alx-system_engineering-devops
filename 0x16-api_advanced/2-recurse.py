@@ -6,13 +6,12 @@ import requests
 def recurse(subreddit, hot_list=[], after="", c=0):
     """return all titles"""
 
-    endpoint = "https://www.reddit.com/r/{}/hot.json"\
-              .format(subreddit)
+    endpoint = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
 
     try:
         r = requests.get(endpoint, headers={'user-Agent': 'agent47'},
-                params={"after" : after, "count" : c},
-                allow_redirects=False)
+                         params={"after": after, "count": c},
+                         allow_redirects=False)
     except Exception:
         return None
     if r.status_code >= 400:
