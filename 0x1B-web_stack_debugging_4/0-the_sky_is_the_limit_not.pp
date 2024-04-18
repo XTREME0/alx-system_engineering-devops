@@ -1,11 +1,4 @@
 # fix bug
 
-exec { 'nginx_fix':
-  command => 'sed -i "s/15/4024/" /etc/default/nginx',
-  path    => '/usr/local/bin/:/bin/'
-}
-
-exec { 'restart':
-  command => 'sudo nginx restart',
-  path    => '/etc/init.d/'
-}
+exec { '/usr/bin/env sed -i s/15/5000/ /etc/default/nginx': }
+-> exec { '/usr/bin/env service nginx restart': }
